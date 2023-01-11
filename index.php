@@ -7,6 +7,7 @@
     <title>Document</title>
 
     <?php
+        session_start();
         require_once __DIR__ . "/libs/helper.php";
 
         $pwsLength = $_GET["pwsLength"] ?? false;
@@ -23,7 +24,12 @@
 
     <h1>
         <?php
-            echo "La Password è: " . $pws;
+            if ($pws) {
+
+                $_SESSION["pws"] = $pws;
+                
+                header("Location: ./thanks.php");
+            } 
         ?>
     </h1>
 </body>
