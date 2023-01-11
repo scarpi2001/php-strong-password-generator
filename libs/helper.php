@@ -1,6 +1,6 @@
 <?php
     
-
+    //genera password random
     function pws_rand ($length) {
         $chars = array_merge(range("A", "Z"), range("a", "z"), range(0, 9), ["!","@","#","$","%","^","&","*",]);
         $password = "";
@@ -11,6 +11,5 @@
 
         return $password;
     }
-
     
 ?>
