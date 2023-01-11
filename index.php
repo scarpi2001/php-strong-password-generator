@@ -7,25 +7,15 @@
     <title>Document</title>
 
     <?php
+        require_once __DIR__ . "/libs/helper.php";
+
         $pwsLength = $_GET["pwsLength"] ?? false;
-
-        function pws_rand ($length) {
-            $chars = array_merge(range("A", "Z"), range("a", "z"), range(0, 9), ["!","@","#","$","%","^","&","*",]);
-            $password = "";
-
-            for ($i=0; $i < $length; $i++) { 
-                $password .= $chars[array_rand($chars)];
-            }
-
-            return $password;
-        }
-
         $pws = pws_rand ($pwsLength);
     ?>
 </head>
 
 <body>
-    <form>
+    <form method="GET">
         <label for="pwsLength">Lunghezza Password</label>
         <input type="text" name="pwsLength">
         <input type="submit" value="Genera">
